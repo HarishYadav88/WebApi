@@ -9,11 +9,11 @@ using System.Collections.Generic;
 
 namespace WebApi.Test
 {
-    public class GroupIntegrationTest : IClassFixture<CustomWebApplicationFactory<Startup>>
+    public class GroupControllerTest : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
         private readonly HttpClient _client;
 
-        public GroupIntegrationTest(CustomWebApplicationFactory<Startup> factory)
+        public GroupControllerTest(CustomWebApplicationFactory<Startup> factory)
         {
             _client = factory.CreateClient();
         }

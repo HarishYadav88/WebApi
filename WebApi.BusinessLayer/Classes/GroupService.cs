@@ -18,12 +18,14 @@ namespace WebApi.BusinessLayer.Classes
         {
             _context = context;
         }
-        public async Task<List<Group>> GetAllAsync(CancellationToken cancellationToken)
+        public async Task<IEnumerable<Group>> GetAllAsync(CancellationToken cancellationToken)
         {
             try
             {
                 var groups = await _context.Groups.AsNoTracking().OrderBy(entity => entity.Id).ToListAsync(cancellationToken);
-                return Mapper.Map<List<Group>>(groups);
+
+                return groups.Select(x => new Group { Id = x.Id, Name = x.Name });
+                //return Mapper.Map<List<Group>>(groups);
             }
             catch (Exception)
             {
