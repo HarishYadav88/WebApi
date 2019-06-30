@@ -1,23 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using WebApi.Application.Queries;
 using WebApi.BusinessLayer.Interfaces;
 using WebApi.BusinessLayer.Models;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class GroupController : ControllerBase
     {
         private readonly IGroupService _groupsService;
+        private readonly IGroupQueries _groupQueries;
         private readonly ILogger<GroupController> _logger;
 
-        public GroupController(IGroupService groupservice, ILogger<GroupController> logger)
+        public GroupController(IGroupService groupservice, IGroupQueries groupqueries, ILogger<GroupController> logger)
         {
             _groupsService = groupservice;
+            _groupQueries = groupqueries;
             _logger = logger;
         }
 
@@ -56,6 +63,24 @@ namespace WebApi.Controllers
 
             return Ok(groups);
         }
+
+        //[Route("{Id:int}")]
+        //[HttpGet]
+        //[ProducesResponseType(typeof(Group), (int)HttpStatusCode.OK)]
+        //[ProducesResponseType((int)HttpStatusCode.NotFound)]
+        //public async Task<ActionResult> GetGroupAsync(int Id)
+        //{
+        //    try
+        //    {
+        //        var group = await _groupQueries.GetGroupAsync(Id);
+        //        return Ok(group);
+        //    }
+        //    catch(Exception e)
+        //    {
+        //        _logger.LogError(e, "Error Occurred");
+        //        return NotFound();
+        //    }
+        //}
 
         [HttpPost]
         public async Task<IActionResult> AddGroup([FromBody] Group group, CancellationToken cancellationToken)

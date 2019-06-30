@@ -7,7 +7,7 @@ namespace WebApi.BusinessLayer.Interfaces
 {
     public interface IGroupService
     {
-        Task<List<Group>> GetAllAsync(CancellationToken ct);
+        Task<IEnumerable<Group>> GetAllAsync(CancellationToken ct);
         Task<Group> GetByIdAsync(int id, CancellationToken ct);
         Task<Group> UpdateAsync(Group group, CancellationToken ct);
         Task<Group> AddAsync(Group group, CancellationToken ct);

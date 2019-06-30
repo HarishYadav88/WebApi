@@ -7,6 +7,8 @@ namespace WebApi.DataAccessLayer
     public class GroupManagementDbContext : DbContext
     {
         public DbSet<GroupEntity> Groups { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+
 
         public GroupManagementDbContext(DbContextOptions<GroupManagementDbContext> options) : base(options) { }
 
