@@ -12,7 +12,7 @@ using WebApi.BusinessLayer.Models;
 
 namespace WebApi.Controllers
 {
-    
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class GroupController : ControllerBase
