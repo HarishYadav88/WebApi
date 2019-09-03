@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.BusinessLayer", "Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.DataAccessLayer", "WebApi.DataAccessLayer\WebApi.DataAccessLayer.csproj", "{EBE0B55A-5BFD-40EC-8178-BB5BB9E3A5B7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Test", "WebApi.IntegrationTest\WebApi.Test.csproj", "{F5BAC105-85E4-4AFD-A4FB-F6C322A9B9BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Test", "WebApi.Test\WebApi.Test.csproj", "{F5BAC105-85E4-4AFD-A4FB-F6C322A9B9BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
